@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:user_id, :email, :session_token)
     end
     def new
-         # default: render 'new' template
+         render :new
     end
     
     def create 
