@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:user_id, :email, :session_token)
     end
     def new
-         render :new
+         render :template => 'users/new'
     end
     
     def create 
