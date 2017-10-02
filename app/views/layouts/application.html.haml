@@ -8,12 +8,17 @@
 
   %body
     %h1.title Rotten Potatoes!
+
+    - if !@current_user
+      = button_to "Sign up/Login", login_path, method: :get, :id => 'signupLogin'
+    - else
+      = "You are logged in as #{@current_user[:user_id]}"
+      = button_to "Logout", logout_path, method: :delete, :id => 'logout'
+      
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
-        
-      = button_to 'Sign up or Login', new_user_path
 
       = yield
